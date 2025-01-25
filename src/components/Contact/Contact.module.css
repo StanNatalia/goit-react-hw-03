@@ -1,0 +1,42 @@
+.item {
+  border: 1px solid white;
+  display: flex;
+  width: 300px;
+  flex-direction: row;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.userIcon {
+}
+.itemName {
+  font-size: 14px;
+}
+
+.itemBtn {
+  width: 70px;
+  height: 30px;
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
