@@ -16,8 +16,17 @@ function App() {
   }, [contacts]);
 
   const [filter, setFilter] = useState("");
+  const [warning, setWarning] = useState("");
 
   const addContacts = (newContact) => {
+    const isDuplicate = contacts.some(
+      (contact) => contact.name.toLowerCase() === newContact.name.toLowerCase()
+    );
+    if (isDuplicate) {
+      setWarning(`A contact with the name ${newContact.name} already exists`);
+      return;
+    }
+    setWarning("");
     setContacts((prevContacts) => {
       return [...prevContacts, newContact];
     });
@@ -37,8 +46,15 @@ function App() {
     <div className={css.container}>
       <h1 className={css.title}>Phonebook</h1>
       <ContactForm onAdd={addContacts} />
-      <SearchBox value={filter} onFilter={setFilter} />
-      <ContactList contacts={visibleContacts} onDelete={deleteContact} />
+      {warning && <p className={css.warning}>{warning}</p>}
+      {contacts.length > 0 ? (
+        <div className={css.wrapper}>
+          <SearchBox value={filter} onFilter={setFilter} />
+          <ContactList contacts={visibleContacts} onDelete={deleteContact} />
+        </div>
+      ) : (
+        <p>No contacts available.</p>
+      )}
     </div>
   );
 }

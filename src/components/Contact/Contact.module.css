@@ -1,12 +1,13 @@
 .item {
+  box-sizing: border-box;
   border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
   display: flex;
   width: 300px;
   flex-direction: row;
   gap: 20px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid white;
+  padding: 10px 15px;
   justify-content: space-between;
   align-items: center;
 }
@@ -21,11 +22,12 @@
 .itemInfo {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 
 .userIcon {
+  filter: drop-shadow(2px 2px 6px rgba(255, 255, 255, 0.4));
 }
 .itemName {
   font-size: 14px;
@@ -34,9 +36,18 @@
 .itemBtn {
   width: 70px;
   height: 30px;
-  background-color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 30, 30);
   border: none;
   border-radius: 5px;
   color: white;
   font-size: 14px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.itemBtn:hover {
+  background-color: rgb(248, 59, 59);
+  transform: scale(1.05);
 }
